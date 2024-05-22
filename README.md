@@ -1,26 +1,26 @@
 ---
-name: Vercel Postgres + Drizzle Next.js Starter
-slug: postgres-drizzle
-description: Simple Next.js template that uses Vercel Postgres as the database and Drizzle as the ORM.
+name: SingleStore + Drizzle Next.js Starter
+slug: singlestore-drizzle
+description: Simple Next.js template that uses SingleStore as the database and Drizzle as the ORM.
 framework: Next.js
 useCase: Starter
 css: Tailwind
-database: Vercel Postgres
-deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fstorage%2Fpostgres-drizzle&project-name=postgres-drizzle&repository-name=postgres-drizzle&demo-title=Vercel%20Postgres%20%2B%20Drizzle%20Next.js%20Starter&demo-description=Simple%20Next.js%20template%20that%20uses%20Vercel%20Postgres%20as%20the%20database%20and%20Drizzle%20as%20the%20ORM.&demo-url=https%3A%2F%2Fpostgres-drizzle.vercel.app%2F&demo-image=https%3A%2F%2Fpostgres-drizzle.vercel.app%2Fopengraph-image.png&stores=%5B%7B"type"%3A"postgres"%7D%5D
-demoUrl: https://postgres-drizzle.vercel.app/
-relatedTemplates:
-  - postgres-starter
-  - postgres-prisma
-  - postgres-kysely
+database: SingleStore
+# deployUrl: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fstorage%2Fpostgres-drizzle&project-name=postgres-drizzle&repository-name=postgres-drizzle&demo-title=Vercel%20Postgres%20%2B%20Drizzle%20Next.js%20Starter&demo-description=Simple%20Next.js%20template%20that%20uses%20Vercel%20Postgres%20as%20the%20database%20and%20Drizzle%20as%20the%20ORM.&demo-url=https%3A%2F%2Fpostgres-drizzle.vercel.app%2F&demo-image=https%3A%2F%2Fpostgres-drizzle.vercel.app%2Fopengraph-image.png&stores=%5B%7B"type"%3A"postgres"%7D%5D
+# demoUrl: https://postgres-drizzle.vercel.app/
+# relatedTemplates:
+#   - postgres-starter
+#   - postgres-prisma
+#   - postgres-kysely
 ---
 
-# Vercel Postgres + Drizzle Next.js Starter
+# Vercel SingleStore + Drizzle Next.js Starter
 
-Simple Next.js template that uses [Vercel Postgres](https://vercel.com/postgres) as the database and [Drizzle](https://github.com/drizzle-team/drizzle-orm) as the ORM.
+Simple Next.js template that uses [SingleStore](https://www.singlestore.com) as the database and [Drizzle](https://github.com/drizzle-team/drizzle-orm) as the ORM.
 
 ## Demo
 
-https://postgres-drizzle.vercel.app/
+<!-- https://postgres-drizzle.vercel.app/ -->
 
 ## How to Use
 

@@ -1,32 +1,32 @@
-import {
-  pgTable,
-  serial,
-  text,
-  timestamp,
-  uniqueIndex,
-} from 'drizzle-orm/pg-core'
-import { InferSelectModel, InferInsertModel } from 'drizzle-orm'
-import { sql } from '@vercel/postgres'
-import { drizzle } from 'drizzle-orm/vercel-postgres'
+import { drizzle } from 'drizzle-orm/mysql2';
+import mysql from 'mysql2/promise';
+import fs from 'fs';
+import * as schema from './schema';
+import dotenv from 'dotenv';
 
-export const UsersTable = pgTable(
-  'users',
-  {
-    id: serial('id').primaryKey(),
-    name: text('name').notNull(),
-    email: text('email').notNull(),
-    image: text('image').notNull(),
-    createdAt: timestamp('createdAt').defaultNow().notNull(),
+dotenv.config({
+  path: '.env.local',
+});
+
+const {
+  SINGLESTORE_HOST,
+  SINGLESTORE_USER,
+  SINGLESTORE_PASSWORD,
+  SINGLESTORE_PORT,
+  SINGLESTORE_DATABASE,
+} = process.env;
+
+export const connection = await mysql.createConnection({
+  host: SINGLESTORE_HOST,
+  port: Number(SINGLESTORE_PORT),
+  user: SINGLESTORE_USER,
+  password: SINGLESTORE_PASSWORD,
+  database: SINGLESTORE_DATABASE,
+  ssl: {
+    ca: fs.readFileSync('singlestore_bundle.pem'),
   },
-  (users) => {
-    return {
-      uniqueIdx: uniqueIndex('unique_idx').on(users.email),
-    }
-  }
-)
+  multipleStatements: true,
+});
 
-export type User = InferSelectModel<typeof UsersTable>
-export type NewUser = InferInsertModel<typeof UsersTable>
-
-// Connect to Vercel Postgres
-export const db = drizzle(sql)
+export const db = drizzle(connection, { schema, mode: 'default' });
+export * from './schema';

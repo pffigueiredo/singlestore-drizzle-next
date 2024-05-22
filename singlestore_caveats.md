@@ -1,0 +1,3 @@
+- no FK
+- no lateral joins
+- `JSON_TO_ARRAY` instead `JSON_ARRAY`
