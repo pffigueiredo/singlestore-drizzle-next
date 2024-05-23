@@ -1,4 +1,4 @@
-import { NewTask, TasksTable, connection, db } from '@/lib/drizzle';
+import { NewTask, TasksTable, poolConnection, db } from '@/lib/drizzle';
 import { UsersTable, NewUser } from './drizzle';
 
 const newUsers: NewUser[] = [
@@ -31,7 +31,7 @@ export async function seed() {
   console.log(`Seeded ${insertedUsers.length} users`);
   console.log(`Seeded ${insertedTasks.length} tasks`);
 
-  connection.end();
+  poolConnection.end();
 }
 
 await seed();

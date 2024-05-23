@@ -16,7 +16,7 @@ const {
   SINGLESTORE_DATABASE,
 } = process.env;
 
-export const connection = await mysql.createConnection({
+export const poolConnection = await mysql.createPool({
   host: SINGLESTORE_HOST,
   port: Number(SINGLESTORE_PORT),
   user: SINGLESTORE_USER,
@@ -28,5 +28,5 @@ export const connection = await mysql.createConnection({
   multipleStatements: true,
 });
 
-export const db = drizzle(connection, { schema, mode: 'default' });
+export const db = drizzle(poolConnection, { schema, mode: 'default' });
 export * from './schema';

@@ -29,8 +29,6 @@ async function getData() {
       return acc;
     }, []);
   } catch (e: any) {
-    console.log(e);
-
     if (e.message === `relation "users" does not exist`) {
       throw new Error(
         'Table does not exist, push the schema by running `npm run db:push-migrations`'
@@ -51,8 +49,6 @@ async function addTask(formData: FormData) {
   const userId = Number(formData.get('userID'));
   const title = formData.get('title') as string;
   const description = formData.get('description') as string;
-
-  console.log({ userId, title, description });
 
   try {
     await db.insert(TasksTable).values({
